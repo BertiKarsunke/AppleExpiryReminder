@@ -9,3 +9,12 @@ Summary - A simple script to all the certificates and profiles on Apple Develope
 ### What does this script do?
 - Fetch all the certificates and profiles and filter them according to the condition - if they are within the expiry period.
 - Generate a message and notify the users on Flock Channel. (Get Flocking here: - www.flock.com)
+
+## Usage
+```BASH
+ruby expiry_reminder.rb ${USERNAME} ${PASSWORD} ${FLOCK_CHANNEL_WEBHOOK_URL} ${TEAM_ID} ${EXPIRY_PERIOD}
+```
+Where:
+- USERNAME, PASSWORD - Apple dev portal username and password.
+- FLOCK_CHANNEL_WEBHOOK_URL - We can create a incoming webhook for a flock channel and send messages to the channel using it.
+- EXPIRY_PERIOD - Number of days to expiry. Those certificates and profiles will be fetched which will be expiring within this period.
