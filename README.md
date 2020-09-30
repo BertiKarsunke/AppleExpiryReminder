@@ -5,6 +5,7 @@ Summary - A simple script to all the certificates and profiles on Apple Develope
 - Apple developers have their certificates and profiles on the developer portal.
 - Different profiles and certificates have different expiry periods.
 - Although Apple does send email notification 30 days before expiry, but we all agree that emails suck!! :innocent:
+- Also as an organisation, if one has a large number of developer certificates and profiles, this could be a blessing.
 
 ### What does this script do?
 - Fetch all the certificates and profiles and filter them according to the condition - if they are within the expiry period.
