@@ -19,3 +19,11 @@ Where:
 - USERNAME, PASSWORD - Apple dev portal username and password.
 - FLOCK_CHANNEL_WEBHOOK_URL - We can create a incoming webhook for a flock channel and send messages to the channel using it.
 - EXPIRY_PERIOD - Number of days to expiry. Those certificates and profiles will be fetched which will be expiring within this period.
+
+Example: 
+```BASH
+ruby expiry_reminder.rb foo bar url IDxxxxx 30
+```
+Fetch all those certificates and profiles which are going to expire within 30 days from now.
+
+One can setup a cron job to run the script every day.
