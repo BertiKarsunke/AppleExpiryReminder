@@ -93,15 +93,18 @@ def getFlockMLBody(certificates, profiles, expiryPeriodDays)
 end
 
 
-def sendDetails(endpoint, certificates, profiles, expiryPeriodDays)
+def sendDetails(certificates, profiles, expiryPeriodDays)
   headers = {
     "Content-Type" => "application/json"
   }
-  puts(getFlockMLBody(certificates,profiles,expiryPeriodDays))
-  request_body = {
-   flockml: getFlockMLBody(certificates, profiles, expiryPeriodDays)  
-  }
-  RestClient.post(endpoint, request_body.to_json, headers)
+  puts "Reminder"
+  puts certificates
+
+  # puts(getFlockMLBody(certificates,profiles,expiryPeriodDays))
+  # request_body = {
+  #  flockml: getFlockMLBody(certificates, profiles, expiryPeriodDays)  
+  # }
+  # RestClient.post(endpoint, request_body.to_json, headers)
 end
 
 def login(username, password, teamId)
@@ -112,9 +115,9 @@ end
 def main()
   username = ARGV[0]
   password = ARGV[1]
-  flockChannelWebhookURL = ARGV[2]
-  teamID = ARGV[3]
-  expiryPeriodDays = ARGV[4].to_i
+  # flockChannelWebhookURL = ARGV[2]
+  teamID = ARGV[2]
+  expiryPeriodDays = ARGV[3].to_i
 
   login(username, password, teamID)
 
@@ -124,7 +127,7 @@ def main()
   displayExpiringCertificateDetails(expiringCertificates)
   displayExpiringProfileDetails(expiringProfiles)
 
-  sendDetails(flockChannelWebhookURL, expiringCertificates, expiringProfiles, expiryPeriodDays)
+  sendDetails(expiringCertificates, expiringProfiles, expiryPeriodDays)
 end
 
 if __FILE__ == $0
